@@ -23,7 +23,7 @@ public class BasicBitSet implements Test{
         int x = 0;
         for(int i = 0; i < size; i++){
             do{
-                x = Math.abs(rand.nextInt(1_000_000));
+                x = Math.abs(rand.nextInt());
             }while(lowNum.get(x));
             lowNum.set(x);
 

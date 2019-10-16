@@ -19,21 +19,19 @@ public class Main {
         //BasicArray arr = new BasicArray(true,50_000_000);
         //Test testArrayRead = new ArrayReadSpeedTest(arr.getArray());
 
-        Test BasicTreeMap = new BasicTreeMap(10_000_000);
+        Test BasicTreeMap = new BasicTreeMap(100);
 
-        Test bitSetTest = new BasicBitSet(1000);
+        Test bitSetTest = new BasicBitSet(100);
 
         System.out.println("Everything Created!");
         timeTaking.startTimer();
-        bitSetTest.startTest(2);
-        timeTaking.endTimer(2);
+        bitSetTest.startTest();
+        timeTaking.endTimer();
         System.out.println("Read BitSet\n");
 
-
-
         timeTaking.startTimer();
-        BasicTreeMap.startTest(2);
-        timeTaking.endTimer(2);
+        BasicTreeMap.startTest();
+        timeTaking.endTimer();
         System.out.println("Read TreeMap\n");
 
         /*

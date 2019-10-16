@@ -1,8 +1,7 @@
-package main.java.com.Tests;
-
-import java.util.Hashtable;
+package main.java.com.Tests;;
 import java.util.TreeMap;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.*;
 
 public class BasicTreeMap implements Test{
 
@@ -22,20 +21,33 @@ public class BasicTreeMap implements Test{
 
 
     private void fillHashMap(){
+        int x = 0;
         for (int i = 0; i < size; i++){
-            tm.put(Math.abs(rand.nextInt()),Math.abs(rand.nextInt()));
+            x = Math.abs(rand.nextInt());
+            while(tm.containsKey(x)){
+                x = Math.abs(rand.nextInt());
+            }
+            tm.put(x,Math.abs(rand.nextInt()));
         }
     }
 
     private void readHashMap(){
-        int x = 0;
-        TreeMap<Integer,Integer> tmCopy = new TreeMap<>(){{putAll(tm);}};
-        for (int i = 0; i < size; i++){
-            x += tmCopy.get(tmCopy.firstKey());
-            tmCopy.remove(tmCopy.firstKey());
+        int v = 0;
+        try{
+            int x = 0;
+            TreeMap<Integer,Integer> tmCopy = new TreeMap<>(){{putAll(tm);}};
+            for (int i = 0; i < size; i++){
+                x += tmCopy.get(tmCopy.firstKey());
+                tmCopy.remove(tmCopy.firstKey());
+                v = i;
+                //tm.put(tm.firstKey(),tm.get(tm.firstKey())+1); Test ob das Wirklich stuff macht.
+                //System.out.println(x);
+            }
+        }catch (Exception e){
+            System.out.println(v + "  "+e);
         }
-        tm.put(tm.firstKey(),tm.get(tm.firstKey())+1);
-        //System.out.println(x);
+
+
     }
 
 
