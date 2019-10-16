@@ -1,10 +1,6 @@
 package com.Controll;
 
-import com.Tests.BasicArray;
-import com.Tests.ArrayReadSpeedTest;
-import com.Tests.ArrayWriteSpeedTest;
-import com.Tests.GraphCreatingTest;
-import com.Tests.Test;
+import com.Tests.*;
 import com.Timer.BasicTimer;
 import com.Timer.Timer;
 
@@ -22,8 +18,15 @@ public class Main {
         BasicArray arr = new BasicArray(true,50_000_000);
         Test testArrayRead = new ArrayReadSpeedTest(arr.getArray());
 
+        Test BasicTreeMap = new BasicTreeMap(100_000);
 
 
+        timer.startTimer();
+        BasicTreeMap.startTest(200);
+        timer.endTimer(200);
+        System.out.println("Read TreeMap\n");
+
+/*
         timer.startTimer();
         testGraph.startTest(20);
         timer.endTimer(20);
@@ -43,7 +46,7 @@ public class Main {
         arrTest.startTest(70);
         timer.endTimer(70);
         System.out.println("Array Create\n");
-
+*/
 
     }
 }
